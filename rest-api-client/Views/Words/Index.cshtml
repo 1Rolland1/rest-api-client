@@ -1,0 +1,20 @@
+﻿@using rest_api_client.Models
+@model Word
+
+@{
+    string controllerName = "Words";
+}
+
+<fieldset>
+    <legend>Пожалуйста, заполните необходимые поля</legend>
+    @using (Html.BeginForm("GetWord", controllerName, FormMethod.Post))
+    {
+        @Html.EditorForModel()
+
+        <input type="submit" value="Сохранить" class="btn btn-secondary" />        
+    }
+</fieldset>
+
+
+
+
