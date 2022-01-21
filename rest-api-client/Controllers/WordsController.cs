@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using IO.Swagger.Api;
 using rest_api_client.Models;
@@ -13,40 +11,42 @@ namespace rest_api_client.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var word = new Word();
-            return View(word);
-        }
-
-        
-        //public ActionResult GetWord()
-        //{
-        //    var word = new Word();
-        //    return View(word);
-        //}
-
-        
-        public ActionResult GetWord(IO.Swagger.Model.Word model, Word model2)
+            var words = new ViewWord();            
+            return View(words);
+        }     
+                
+        public ActionResult GetWord(Word model)
         {
             var api = new WordsApi();
-            var word = model2._Word;
-            var entity = api.ApiV2EntriesRuWordGet(word: word);
-            ApplayImport(entity, model2);
+            var word = model._Word;
+            var word_ex = "Ошибка";
+            var entity = api.WordGet(word: word_ex);
+            if (word == null)
+                ModelState.AddModelError("_Word", "Заполните поле ввода");
+            
+            try
+            {
+                entity = api.WordGet(word: word);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("_Word", "К сожалению данного слова нет в словаре");                                
+            }
                         
-            return RedirectPermanent("/Words/GetWord");
+            var result = ConvertInfo(entity);
+
+            return View("Info", result);
         }
-
-        private void ApplayImport(IO.Swagger.Model.Word entity, Word model2)
+        private Word ConvertInfo(IO.Swagger.Model.Words entity)
         {
-            var db = new TimetableContext();
-
-            db.Words.RemoveRange(db.Words);
-
-           model2._Word = entity._Word;
-            model2.Phon = entity.Meanings.Select(x=>x.PartOfSpeech).ToString();
-           //model2.Phonetics.Text =  entity.Phonetics.Text; ;
-            db.Words.Add(model2);
-            db.SaveChanges();       
-                      
-        }             
+            var word = entity.First();
+            var def = word.Meanings.SelectMany(x => x.Definitions).Select(x=> x.Definition).Distinct().ToList();
+            return new Word()
+            {
+                _Word = word._Word,
+                Defenitons = def
+            };
+        }
+        
     }
 }

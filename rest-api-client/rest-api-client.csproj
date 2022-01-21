@@ -161,17 +161,23 @@
     <Compile Include="Migrations\202201180858216_init3.designer.cs">
       <DependentUpon>202201180858216_init3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201200558414_slovo.cs" />
+    <Compile Include="Migrations\202201200558414_slovo.designer.cs">
+      <DependentUpon>202201200558414_slovo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201202351011_try1.cs" />
+    <Compile Include="Migrations\202201202351011_try1.designer.cs">
+      <DependentUpon>202201202351011_try1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attributes\TargetPropertyAttribute.cs" />
-    <Compile Include="Models\Entities\Definitions.cs" />
     <Compile Include="Models\Entities\Discipline.cs" />
     <Compile Include="Models\Entities\Group.cs" />
     <Compile Include="Models\Entities\Lesson.cs" />
-    <Compile Include="Models\Entities\Meanings.cs" />
     <Compile Include="Models\Entities\Nationality.cs" />
-    <Compile Include="Models\Entities\Phonetics.cs" />
     <Compile Include="Models\Entities\Teacher.cs" />
     <Compile Include="Models\Entities\TeacherImage.cs" />
+    <Compile Include="Models\Entities\ViewWord.cs" />
     <Compile Include="Models\Entities\Word.cs" />
     <Compile Include="Models\Enums\Position.cs" />
     <Compile Include="Models\Enums\Sex.cs" />
@@ -274,7 +280,9 @@
     <Content Include="Views\Teachers\Edit.cshtml" />
     <Content Include="Views\Teachers\Index.cshtml" />
     <Content Include="Views\Words\Index.cshtml" />
-    <Content Include="Views\Words\GetWord.cshtml" />
+    <Content Include="Views\Words\Info.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListString.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,10 +305,16 @@
     <EmbeddedResource Include="Migrations\202201180858216_init3.resx">
       <DependentUpon>202201180858216_init3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201200558414_slovo.resx">
+      <DependentUpon>202201200558414_slovo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201202351011_try1.resx">
+      <DependentUpon>202201202351011_try1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\User\Downloads\csharp-client-generated %282%29\src\IO.Swagger\IO.Swagger.csproj">
-      <Project>{bffbbaa0-9891-45e2-b570-c6417d3cbb4e}</Project>
+    <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
+      <Project>{a75ce93c-62af-4145-9753-d8dbd59750af}</Project>
       <Name>IO.Swagger</Name>
     </ProjectReference>
   </ItemGroup>

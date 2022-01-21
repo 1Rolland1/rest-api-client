@@ -14,11 +14,7 @@ namespace rest_api_client.Models
         public DbSet<TeacherImage> TeacherImages { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Discipline> Disciplines { get; set; }
-        public DbSet<Nationality> Nationalitys { get; set; }
-        public DbSet<Word> Words { get; set; }
-        public DbSet<Definitions> Definitions { get; set; }
-        public DbSet<Meanings> Meanings { get; set; }
-        public DbSet<Phonetics> Phonetics { get; set; }
+        public DbSet<Nationality> Nationalitys { get; set; }        
 
         public TimetableContext() : base("TimetableEntity")
         { }

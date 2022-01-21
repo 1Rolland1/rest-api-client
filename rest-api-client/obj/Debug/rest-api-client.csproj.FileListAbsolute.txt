@@ -101,3 +101,5 @@ D:\InternetTechnology\rest-api-client\rest-api-client\bin\RestSharp.xml
 D:\InternetTechnology\rest-api-client\rest-api-client\obj\Debug\rest_api_client.Migrations.init2.resources
 D:\InternetTechnology\rest-api-client\rest-api-client\obj\Debug\rest_api_client.Migrations.init11.resources
 D:\InternetTechnology\rest-api-client\rest-api-client\obj\Debug\rest_api_client.Migrations.init3.resources
+D:\InternetTechnology\rest-api-client\rest-api-client\obj\Debug\rest_api_client.Migrations.slovo.resources
+D:\InternetTechnology\rest-api-client\rest-api-client\obj\Debug\rest_api_client.Migrations.try1.resources

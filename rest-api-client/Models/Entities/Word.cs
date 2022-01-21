@@ -10,25 +10,19 @@ namespace rest_api_client.Models
 {
     public class Word
     {
+ 
         /// <summary>
-        /// Gets or Sets _Word
+        /// Непонятное слово
         /// </summary>
-        [Required]
+        [Display(Name = "Слово", Order = 1)]
+        [UIHint("TextReadOnly")]
         public string _Word { get; set; }
 
-        public string Phon { get; set; }
-
         /// <summary>
-        /// Gets or Sets Phonetics
+        /// Непонятное слово
         /// </summary>
-        [HiddenInput(DisplayValue = false)]
-        public List<Phonetics> Phonetics { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Meanings
-        /// </summary>
-        [HiddenInput(DisplayValue = false)]
-        public List<Meanings> Meanings { get; set; }
-
+        [Display(Name = "Значения", Order = 2)]
+        [UIHint("ListString")]
+        public List<string> Defenitons { get; set; }
     }
 }
